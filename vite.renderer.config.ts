@@ -5,8 +5,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import { defineConfig } from "vite";
 import vueDevTools from "vite-plugin-vue-devtools";
 
-import Components from "unplugin-vue-components/vite";
 import { BootstrapVueNextResolver } from "bootstrap-vue-next/resolvers";
+import Components from "unplugin-vue-components/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,6 +21,9 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@Components": fileURLToPath(
+        new URL("./src/components", import.meta.url)
+      ),
     },
   },
 });

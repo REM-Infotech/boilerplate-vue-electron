@@ -1,6 +1,4 @@
-<template>
-  <div class="index">TEste</div>
-</template>
+<template></template>
 
 <style lang="css" scoped>
 .index {

@@ -12,13 +12,40 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BButton: typeof import('bootstrap-vue-next/components/BButton')['BButton']
+    BCollapse: typeof import('bootstrap-vue-next/components/BCollapse')['BCollapse']
+    BDropdownItem: typeof import('bootstrap-vue-next/components/BDropdown')['BDropdownItem']
+    BFormInput: typeof import('bootstrap-vue-next/components/BFormInput')['BFormInput']
+    BNavbar: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbar']
+    BNavbarBrand: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbarBrand']
+    BNavbarNav: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbarNav']
+    BNavbarToggle: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbarToggle']
+    BNavForm: typeof import('bootstrap-vue-next/components/BNav')['BNavForm']
+    BNavItem: typeof import('bootstrap-vue-next/components/BNav')['BNavItem']
+    BNavItemDropdown: typeof import('bootstrap-vue-next/components/BNav')['BNavItemDropdown']
+    HeaderView: typeof import('./src/components/HeaderView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+  }
+  export interface GlobalDirectives {
+    vBColorMode: typeof import('bootstrap-vue-next/directives/BColorMode')['vBColorMode']
   }
 }
 
 // For TSX support
 declare global {
+  const BButton: typeof import('bootstrap-vue-next/components/BButton')['BButton']
+  const BCollapse: typeof import('bootstrap-vue-next/components/BCollapse')['BCollapse']
+  const BDropdownItem: typeof import('bootstrap-vue-next/components/BDropdown')['BDropdownItem']
+  const BFormInput: typeof import('bootstrap-vue-next/components/BFormInput')['BFormInput']
+  const BNavbar: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbar']
+  const BNavbarBrand: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbarBrand']
+  const BNavbarNav: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbarNav']
+  const BNavbarToggle: typeof import('bootstrap-vue-next/components/BNavbar')['BNavbarToggle']
+  const BNavForm: typeof import('bootstrap-vue-next/components/BNav')['BNavForm']
+  const BNavItem: typeof import('bootstrap-vue-next/components/BNav')['BNavItem']
+  const BNavItemDropdown: typeof import('bootstrap-vue-next/components/BNav')['BNavItemDropdown']
+  const HeaderView: typeof import('./src/components/HeaderView.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
 }

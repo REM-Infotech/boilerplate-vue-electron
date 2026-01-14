@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Navbar from "@/components/HeaderView.vue";
 import { BApp } from "bootstrap-vue-next";
 import { RouterView } from "vue-router";
 </script>
@@ -6,6 +7,7 @@ import { RouterView } from "vue-router";
 <template>
   <BApp>
     <div class="content-app">
+      <Navbar />
       <RouterView v-slot="{ Component }">
         <Transition name="page" mode="out-in">
           <component :is="Component" />
