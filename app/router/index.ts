@@ -1,4 +1,5 @@
 import IndexView from "@/views/IndexView.vue";
+import LoginView from "@/views/LoginView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -8,6 +9,11 @@ const router = createRouter({
       path: "/",
       name: "index",
       component: IndexView,
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: LoginView,
     },
   ],
 });

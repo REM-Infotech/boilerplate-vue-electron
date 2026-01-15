@@ -13,5 +13,4 @@ export const pinia = createPinia();
 
 app.use(pinia);
 app.use(router);
-
 app.mount("#app");
