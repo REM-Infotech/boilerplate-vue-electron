@@ -1,12 +1,24 @@
 <script setup lang="ts">
-import { BNavbar } from "bootstrap-vue-next";
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import MaterialSymbolsCloseRounded from "~icons/material-symbols/close-rounded?width=24px&height=24px";
+import MaterialSymbolsMinimizeRounded from "~icons/material-symbols/minimize-rounded?width=24px&height=24px";
+import MaterialSymbolsOpenInFullRounded from "~icons/material-symbols/open-in-full-rounded?width=24px&height=24px";
 
 const route = useRoute();
 const isLogged = computed(
   () => route.name && route.name !== "/" && route.name !== "/login"
 );
+
+const minimizeApp = async () => {
+  await window.windowApi.minimizeWindow();
+};
+
+const maximizeApp = async () => {
+  await window.windowApi.maximizeWindow();
+};
+
+const closeApp = async () => {
+  await window.windowApi.closeWindow();
+};
 </script>
 
 <template>
@@ -21,34 +33,31 @@ const isLogged = computed(
         <BNavbarBrand class="no-drag" href="#navbar-overview">
           NavBar
         </BNavbarBrand>
-        <BNavbarToggle class="no-drag" target="nav-collapse" />
-        <BCollapse class="no-drag" id="nav-collapse" is-nav>
-          <BNavbarNav class="no-drag">
-            <BNavItem href="#navbar-overview">Link</BNavItem>
-            <BNavItem href="#navbar-overview" disabled>Disabled</BNavItem>
-          </BNavbarNav>
-          <!-- Right aligned nav items -->
-          <BNavbarNav class="no-drag ms-auto mb-2 mb-lg-0">
-            <BNavItemDropdown text="Lang" right>
-              <BDropdownItem>EN</BDropdownItem>
-              <BDropdownItem>ES</BDropdownItem>
-              <BDropdownItem>RU</BDropdownItem>
-              <BDropdownItem>FA</BDropdownItem>
-            </BNavItemDropdown>
-            <BNavItemDropdown right>
-              <!-- Using 'button-content' slot -->
-              <template #button-content>
-                <em>User</em>
-              </template>
-              <BDropdownItem>Profile</BDropdownItem>
-              <BDropdownItem>Sign Out</BDropdownItem>
-            </BNavItemDropdown>
-          </BNavbarNav>
-          <BNavForm class="no-drag d-flex">
-            <BFormInput class="me-2" placeholder="Search" />
-            <BButton type="submit" variant="outline-success">Search</BButton>
-          </BNavForm>
-        </BCollapse>
+        <BNavbarNav class="no-drag ms-auto mb-2 mb-lg-0">
+          <div class="d-flex gap-3">
+            <BButton
+              @click="minimizeApp"
+              variant="outline-secondary"
+              class="d-flex flex-column align-items-center"
+            >
+              <MaterialSymbolsMinimizeRounded class="fw-bold" />
+            </BButton>
+            <BButton
+              @click="maximizeApp"
+              variant="outline-warning"
+              class="d-flex flex-column align-items-center"
+            >
+              <MaterialSymbolsOpenInFullRounded class="fw-bold" />
+            </BButton>
+            <BButton
+              @click="closeApp"
+              variant="outline-danger"
+              class="d-flex flex-column align-items-center"
+            >
+              <MaterialSymbolsCloseRounded class="fw-bold" />
+            </BButton>
+          </div>
+        </BNavbarNav>
       </BNavbar>
     </Transition>
   </div>

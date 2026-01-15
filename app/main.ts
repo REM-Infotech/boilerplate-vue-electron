@@ -1,6 +1,7 @@
 import { BrowserWindow, app } from "electron";
 import started from "electron-squirrel-startup";
 import path from "node:path";
+import IpcApp from "./ipc";
 
 // Declaração das variáveis globais para evitar erro de valor não declarado
 
@@ -9,12 +10,11 @@ if (started) {
   app.quit();
 }
 const appName = import.meta.env.VITE_APP_NAME;
-const createWindow = () => {
-  // Create the browser window.
+function createWindow() {
   const mainWindow = new BrowserWindow({
     title: appName,
-    width: 1600,
-    height: 900,
+    width: 1280,
+    height: 720,
     minWidth: 1280,
     minHeight: 720,
     resizable: true,
@@ -30,18 +30,17 @@ const createWindow = () => {
     },
   });
 
-  // and load the index.html of the app.
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
     mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
 
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools({ mode: "detach" });
   } else {
     mainWindow.loadFile(
       path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`)
     );
   }
-};
+  IpcApp(mainWindow);
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
