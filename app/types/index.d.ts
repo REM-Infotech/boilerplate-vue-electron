@@ -10,3 +10,10 @@ declare module "@/app/assets/pexels-maurizio.jpg" {
   const PexelsMaurizio: string;
   export default PexelsMaurizio;
 }
+interface ImportMetaEnv {
+  readonly VITE_APP_NAME: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}

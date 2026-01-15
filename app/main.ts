@@ -8,16 +8,25 @@ import path from "node:path";
 if (started) {
   app.quit();
 }
-
+const appName = import.meta.env.VITE_APP_NAME;
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    title: appName,
+    width: 1600,
+    height: 900,
     minWidth: 1280,
     minHeight: 720,
+    resizable: true,
+    maximizable: true,
+    frame: true,
+    transparent: false,
+    fullscreenable: true,
     webPreferences: {
+      nodeIntegration: false,
+      devTools: !app.isPackaged,
       preload: path.join(__dirname, "preload.js"),
+      partition: `persist:${appName}`,
     },
   });
 

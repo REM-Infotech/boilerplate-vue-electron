@@ -431,5 +431,11 @@
     "type": true,
     "name": "RouteLocationRaw",
     "as": "RouteLocationRaw"
+  },
+  {
+    "name": "useCounterStore",
+    "as": "useCounterStore",
+    "from": "C:/Github/ui-crawjud/app/stores/counter.ts",
+    "__source": "dir"
   }
 ]

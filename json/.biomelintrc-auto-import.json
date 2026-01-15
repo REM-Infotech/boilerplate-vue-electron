@@ -70,6 +70,7 @@
       "triggerRef",
       "unref",
       "useAttrs",
+      "useCounterStore",
       "useCssModule",
       "useCssVars",
       "useId",

@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const appName = computed(() => import.meta.env.VITE_APP_NAME);
+document.title = appName.value;
+</script>
 
 <template>
   <BApp>
