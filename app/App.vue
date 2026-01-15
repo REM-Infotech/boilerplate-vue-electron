@@ -26,9 +26,7 @@ import { RouterView } from "vue-router";
   width: calc(100% - 35px);
   height: calc(100% - 95px);
   padding: 15px;
-  background-color: rgba(173, 172, 172, 0.308);
   border-radius: 5px;
-  overflow-y: auto;
 }
 
 .content-app {
